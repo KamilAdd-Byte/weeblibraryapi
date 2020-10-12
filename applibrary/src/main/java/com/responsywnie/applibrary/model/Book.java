@@ -1,4 +1,4 @@
-package com.responsywnie.applibrary;
+package com.responsywnie.applibrary.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
