@@ -37,7 +37,7 @@ public class BookApi {
         return bookList.add(book);
     }
     @DeleteMapping//usuwa
-    private boolean deletedBooks(@RequestBody Book book){
-        return bookList.remove(book);
+    private boolean deletedBooks(@RequestParam int index){
+        return bookList.removeIf(element -> element.getId() == index);
     }
 }
