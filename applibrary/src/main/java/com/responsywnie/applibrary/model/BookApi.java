@@ -15,6 +15,8 @@ public class BookApi {
     private BookApi (){
         bookList = new ArrayList<>();
         bookList.add(new Book("Javax","Java",2,1L));
+        bookList.add(new Book("Język MySql","Java",1,1L));
+        bookList.add(new Book("Pedagogika.Podręcznik Akademicki","Znany",3,1L));
     }
 
     @GetMapping("/all")
