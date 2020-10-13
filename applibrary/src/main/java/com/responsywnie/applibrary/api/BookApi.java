@@ -1,46 +1,41 @@
 package com.responsywnie.applibrary.api;
 
 import com.responsywnie.applibrary.entity.Book;
+import com.responsywnie.applibrary.menager.BookManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/library")
 public class BookApi {
 
-    private List<Book>bookList;
+    private BookManager books;
 
-    private BookApi (){
-        bookList = new ArrayList<>();
-        bookList.add(new Book("Javax","Java",2,1L));
-        bookList.add(new Book("Język MySql","Java",1,1L));
-        bookList.add(new Book("Pedagogika.Podręcznik Akademicki","Znany",3,1L));
+    @Autowired
+    public BookApi(BookManager bookManager) {
+        this.books = bookManager;
     }
 
     @GetMapping("/all")
-    private List<Book> getAll (){
-        return bookList;
+    private Iterable<Book> getAll (){
+        return books.findAllBook();
     }
 
     @GetMapping
-    private Book findByID(@RequestParam int index){
-        Optional<Book> first = bookList.stream()
-                .filter(element -> element.getId() == index).findFirst();
-        return first.get();
+    private Optional<Book> findByID(@RequestParam Long index){
+        return books.findBookById(index);
     }
     @PostMapping//dodaje
-    private boolean addBooks (@RequestBody Book book){
-        return bookList.add(book);
+    private Book addBooks (@RequestBody Book book){
+        return books.saveBookInDatabase(book);
     }
     @PutMapping//modyfikuje
-    private boolean modifiedBooks(@RequestBody Book book){
-        return bookList.add(book);
+    private Book modifiedBooks(@RequestBody Book book){
+        return books.saveBookInDatabase(book);
     }
     @DeleteMapping//usuwa
-    private boolean deletedBooks(@RequestParam int index){
-        return bookList.removeIf(element -> element.getId() == index);
+    private void deletedBooks(@RequestParam Long index){
+        books.deleteBookInDatabase(index);
     }
 }

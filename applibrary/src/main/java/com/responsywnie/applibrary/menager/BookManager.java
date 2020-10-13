@@ -4,7 +4,6 @@ import com.responsywnie.applibrary.dao.BookRepo;
 import com.responsywnie.applibrary.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class BookManager {//Warstwa pośrednia między dostępem do danych a API
         return bookRepo.findById(id);
     }
 
-    public Iterable<Book> findAllBook(Long id) {//typ zwracany Optional
+    public Iterable<Book> findAllBook() {//typ zwracany Optional
         return bookRepo.findAll();
     }
 
