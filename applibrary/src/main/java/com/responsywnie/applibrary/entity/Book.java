@@ -1,4 +1,4 @@
-package com.responsywnie.applibrary.model;
+package com.responsywnie.applibrary.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +13,6 @@ public class Book {
     private String title;
     private String author;
     private int localization;
-
-
 
     public Book() {
     }

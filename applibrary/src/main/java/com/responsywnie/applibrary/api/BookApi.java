@@ -1,5 +1,6 @@
-package com.responsywnie.applibrary.model;
+package com.responsywnie.applibrary.api;
 
+import com.responsywnie.applibrary.entity.Book;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
