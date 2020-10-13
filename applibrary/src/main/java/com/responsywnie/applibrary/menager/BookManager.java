@@ -3,6 +3,9 @@ package com.responsywnie.applibrary.menager;
 import com.responsywnie.applibrary.dao.BookRepo;
 import com.responsywnie.applibrary.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -30,7 +33,15 @@ public class BookManager {//Warstwa pośrednia między dostępem do danych a API
 
     }
 
+
     public void deleteBookInDatabase(Long id){//usuwa z bazy typ void
         bookRepo.deleteById(id);
+    }
+
+    @EventListener(ApplicationReadyEvent.class)//dodanie do bazy poprzez METODĘ
+    public void fillDB(){
+        saveBookInDatabase(new Book("Javax","Java",2,1L));
+        saveBookInDatabase(new Book("Pedagogika.Podręcznik Akademicki","Znany",3,3L));
+        saveBookInDatabase(new Book("Język MySql","Java",1,2L));
     }
 }
