@@ -23,15 +23,13 @@ public class BookManager {//Warstwa pośrednia między dostępem do danych a API
         return bookRepo.findById(id);
     }
 
-    public Iterable<Book> findAllBook() {//typ zwracany Optional
+    public Iterable<Book> findAllBook() {//typ zwracany iterable
         return bookRepo.findAll();
     }
 
     public Book saveBookInDatabase(Book book) {//pozwala zapisywać
         return bookRepo.save(book);
-
     }
-
 
     public void deleteBookInDatabase(Long id){//usuwa z bazy typ void
         bookRepo.deleteById(id);
