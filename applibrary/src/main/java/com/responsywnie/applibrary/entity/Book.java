@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Data
 @Getter
@@ -34,5 +35,22 @@ public class Book {
         this.title = title;
         this.author = author;
         this.localization = localization;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return isbn == book.isbn &&
+                localization == book.localization &&
+                id.equals(book.id) &&
+                title.equals(book.title) &&
+                author.equals(book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, isbn, title, author, localization);
     }
 }
