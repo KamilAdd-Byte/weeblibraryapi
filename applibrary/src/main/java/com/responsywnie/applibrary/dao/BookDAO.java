@@ -1,10 +1,15 @@
 package com.responsywnie.applibrary.dao;
 
-
 import com.responsywnie.applibrary.entity.Book;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Repository
-public interface BookRepo extends CrudRepository<Book,Long> {
+public interface BookDAO {
+
+    List<Book> books = new ArrayList<>();
+
+
 }
