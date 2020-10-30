@@ -12,4 +12,6 @@ public interface BookService  {
 List<Book>bookList=new ArrayList<>();
 
 void saveBook(Book book);
+
+Book getBook(long id);
 }

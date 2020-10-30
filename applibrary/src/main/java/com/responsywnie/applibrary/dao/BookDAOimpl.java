@@ -20,4 +20,10 @@ public class BookDAOimpl implements BookDAO {
     public void save(Book book) {
         entityManager.persist(book);
     }
+
+    @Override
+    public Book getBook(long id) {
+        Book book = entityManager.find(Book.class,id);
+        return book;
+    }
 }

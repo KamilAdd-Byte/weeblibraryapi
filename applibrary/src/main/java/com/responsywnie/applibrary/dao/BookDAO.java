@@ -11,4 +11,6 @@ public interface BookDAO{
     List<Book> books = new ArrayList<>();
 
     void save(Book book);
+
+    Book getBook(long id);
 }
