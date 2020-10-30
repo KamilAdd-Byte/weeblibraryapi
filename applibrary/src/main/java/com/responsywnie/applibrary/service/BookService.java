@@ -1,13 +1,15 @@
 package com.responsywnie.applibrary.service;
 
-import com.responsywnie.applibrary.dao.BookDAO;
+import com.responsywnie.applibrary.entity.Book;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
-public class BookService implements BookDAO {
+public interface BookService  {
 
- public String hello(){
-     return "Hello controller";
- }
+List<Book>bookList=new ArrayList<>();
+
+void saveBook(Book book);
 }
