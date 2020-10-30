@@ -1,10 +1,12 @@
 package com.responsywnie.applibrary.entity;
 
+import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Objects;
 
+@Data
 @Entity
 @ToString
 public class Book {
@@ -15,17 +17,22 @@ public class Book {
 
     @Column
     private int isbn;
-
+    @Column
     private String title;
+    @Column
     private String author;
+    @Column
     private int localization;
 
-    public Book(Long id, int isbn, String title, String author, int localization) {
-        this.id = id;
+    public Book(int isbn, String title, String author, int localization) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.localization = localization;
+    }
+
+    public Book() {
+
     }
 
     public long getId() {

@@ -7,10 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApplibraryApplication {
 
     public static void main(String[] args) {
-         SpringApplication.run(ApplibraryApplication.class, args);
+        SpringApplication.run(ApplibraryApplication.class, args);
 
         // CREATE
-
     }
 
 }
