@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public interface BookService {
+public interface BookService  {
 
-    List<Book> books = new ArrayList<>();
+List<Book>bookList=new ArrayList<>();
 
+void saveBook(Book book);
 
+Book getBook(long id);
 }
